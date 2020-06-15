@@ -1,0 +1,2 @@
+      [  NeXt Gen =^.-.^= We Blog   ]
+                    ' ' 
