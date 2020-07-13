@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
-use App\Post;
+use \App\Post;
+use \App\Hashtag;
 use Carbon\Carbon;
 use Auth;
 use Illuminate\Http\Exceptions\HttpResponseException;
@@ -14,8 +15,7 @@ use Illuminate\Notifications\Action;
 use Illuminate\Support\Facades\Response;
 
 
-use App\Http\Resources\Hashtag as HashtagResource;
-use App\Hashtag;
+
 
 
 class PostController extends Controller
@@ -36,6 +36,17 @@ class PostController extends Controller
         return view('post.index', ['posts' => $posts]);
     }
 
+    /**
+     * Post listing filtered by hashtag/tag (-list)
+     *
+     * @param \App\Hashtag
+     * @response \Illuminate\Http\Response
+     *
+     */
+    public function filter(Hashtag $hashtag)
+    {
+        dd($hashtag);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -77,22 +88,25 @@ class PostController extends Controller
 	    }
 	    else {
             $now = Carbon::now();
-            
+
             $initlist = $request->all();
             $initlist['created_at'] = $now;
             $initlist['published_at'] = $now;
-            
+
             $post = Auth::user()->posts()->create($initlist);
 
 
             $post->save();
 
-            $post->hashtags()->saveMany(collect(Hashtag::tagfilter($post->body)));
-            
+            $this->saveHashtags($post);
+
             return redirect('/posts')->with('message', 'Successfully added your post. You should find it in the list below.');
         }
+    }
 
-
+    public function saveHashtags(\App\Post $post)
+    {
+        $post->hashtags()->saveMany(collect(Hashtag::tagfilter($post->body)));
     }
 
     /**
@@ -120,7 +134,7 @@ class PostController extends Controller
         return view('post.edit', $viewmodel);
     }
 
-    
+
     /**
      * Update the specified resource in storage.
      *
@@ -140,7 +154,7 @@ class PostController extends Controller
         $post->save();
         return redirect("/posts/{$post->id}/");
     }
-    
+
     /**
      * Remove the specified resource from storage.
      *

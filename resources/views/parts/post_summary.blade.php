@@ -6,11 +6,11 @@
             /
         </span>
         <span style='float:right;' >
-            <a class='badge badge-info' href='/user/id/{{$post->user->name}}'>{{$post->user->name}}</a> 
+            <a class='badge badge-info' href='/user/id/{{$post->user->name}}'>{{$post->user->name}}</a>
         </span>
     <h6 class='card-title' style='clear:both;'>
-        
-        
+
+
         {{$post->title}}
 
 </h6>

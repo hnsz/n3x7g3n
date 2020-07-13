@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\PostHashtag;
+
 use App\HashTag;
 use App\Post;
 use Illuminate\Http\Request;
@@ -14,10 +14,9 @@ class PostHashtagController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Post $post)
+    public function index()
     {
-        
-        
+        return view()
     }
 
     /**
@@ -28,17 +27,17 @@ class PostHashtagController extends Controller
      */
     public function store(Request $request, Post $post)
     {
-        
+
 
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\PostHashtag  $postHashtag
+     * @param  \App\Hashtag  $hashtag
      * @return \Illuminate\Http\Response
      */
-    public function show(PostHashtag $postHashtag)
+    public function show(Hashtag $hashtag)
     {
         //
     }
@@ -47,10 +46,10 @@ class PostHashtagController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\PostHashtag  $postHashtag
+     * @param  \App\Hashtag  $hashtag
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PostHashtag $postHashtag)
+    public function update(Request $request, Hashtag $hashtag)
     {
         //
     }
@@ -58,10 +57,10 @@ class PostHashtagController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\PostHashtag  $postHashtag
+     * @param  \App\Hashtag  $hashtag
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PostHashtag $postHashtag)
+    public function destroy(Hashtag $hashtag)
     {
         //
     }

@@ -17,14 +17,19 @@ Route::view('/', 'slash');
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
-    
+//
+
+
+    Route::get('/posts/filter/{hashtag}/', 'PostController@filter');
     Route::resource('/posts', 'PostController');
     Route::resource('/dashboard', 'DashboardController');
-    // Route::get('/posts', 'PostController@index');
-    // Route::get('/dashboard', 'DashboardController@index');
-    // Route::get('posts/create', 'PostController@create');
+    Route::resource('/posts/{post}/comments', 'CommentController');
+    Route::resource('/hashtags', 'HashtagController');
+     Route::get('/posts', 'PostController@index');
+     Route::get('/dashboard', 'DashboardController@index');
+     Route::get('posts/create', 'PostController@create');
 
-    
+
 });
 
 // Route::get('posts/{post}/comments/', 'CommentController@index');

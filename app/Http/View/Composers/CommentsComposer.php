@@ -12,8 +12,8 @@ class CommentsComposer
         public function __construct(Request $request)
         {
                 $this->commentthread = $request->post->threadstarter->commentthread;
-                
-                
+
+
 
 
         }

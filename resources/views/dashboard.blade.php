@@ -18,7 +18,7 @@
                             <tr>
                                 <th>Name:</th>
                                 <td>{{$name}}</td>
-                                
+
                             </tr>
                             <tr>
                                 <th>Joined</th>
@@ -27,7 +27,7 @@
                             <tr>
                                 <th>E-mail:</th>
                                 <td>{{$email}}</td>
-                                
+
                                 @if($verified)
                                 <td class='badge badge-success'>Verified</td>
                                 @else
@@ -39,16 +39,23 @@
                     </div>
 
                     <div class="card">
-                        
+
                         <div class="card-header"></div>
                         <div class='card-body'>
-                            <h6 class="card-title">Your Posts</h6>
-                            <ul class="card-text">
-                                @foreach($posts as $post)
-                                    <li><a href="/posts/{{$post->id}}">{{$post->title}}</a></li>
-                                @endforeach
-                            </ul>
-                            <a  class="btn btn-primary" href='/posts/create'>Write a new post for your web log.</a>
+                            @if(isset($posts) && count($posts) > 0)
+                                <h6 class="card-title">Your Posts</h6>
+                                <ul class="card-text">
+                                    @foreach($posts as $post)
+                                        <li><a href="/posts/{{$post->id}}">{{$post->title}}</a></li>
+                                    @endforeach
+                                </ul>
+
+                            @else
+                                <h6 class="card-title">You have no posts yet.</h6>
+                                <p class="card-text">Start writing your first post.</p>
+                            @endif
+                                <a  class="btn btn-primary" href='/posts/create'>Write Post</a>
+
                         </div>
                     </div>
                 </div>

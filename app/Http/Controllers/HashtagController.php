@@ -14,7 +14,7 @@ class HashtagController extends Controller
      */
     public function index()
     {
-        //
+        return view("hashtag.index", ['hashtags' => \App\Hashtag::all()]);
     }
 
     /**

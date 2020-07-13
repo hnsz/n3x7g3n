@@ -15,7 +15,7 @@ class PostComposer
     }
     public function compose(View $view)
     {
-           dd("fuck  view composer + component + post->hashtags");
+
     }
 
 }

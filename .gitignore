@@ -10,3 +10,4 @@ yarn-error.log
 composer.lock
 .styleci.yml
 .editorconfig
+.idea

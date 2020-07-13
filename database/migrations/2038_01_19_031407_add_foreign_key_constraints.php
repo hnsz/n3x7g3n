@@ -18,7 +18,7 @@ class AddForeignKeyConstraints extends Migration
         //
         Schema::table('posts',  function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-        }); 
+        });
 
         Schema::table('comments', function (Blueprint $table) {
              $table->foreign('commentthread_id')->references('id')->on('commentthreads')->ondelete('cascade');
@@ -28,8 +28,8 @@ class AddForeignKeyConstraints extends Migration
             $table->foreign('threadstarter_id')->references('id')->on('threadstarters')->ondelete('cascade');
        });
        Schema::table('post_hashtag', function(Blueprint $table) {
-            $table->foreign('post_id')->references('id')->on('posts');
-            $table->foreign('hashtag_id')->references('id')->on('hashtags');
+            $table->foreign('post')->references('id')->on('posts');
+            $table->foreign('hashtag')->references('id')->on('hashtags');
         });
 
        Schema::enableForeignKeyConstraints();
@@ -47,5 +47,5 @@ class AddForeignKeyConstraints extends Migration
     }
 }
 
- 
+
 

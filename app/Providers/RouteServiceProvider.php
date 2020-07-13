@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Hashtag;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +34,7 @@ class RouteServiceProvider extends ServiceProvider
         //
 
         parent::boot();
+        Route::bind('hashtag', '\App\Hashtag@byTag');
     }
 
     /**

@@ -1,5 +1,5 @@
 <?php
- 
+
 
 namespace App\Http\Controllers;
 
@@ -33,7 +33,7 @@ class CommentController extends Controller
     public function create(\App\Post $post)
     {
         return view('post.read', ['post' => $post]);
-    }  
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -41,11 +41,12 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, \App\Post $post)
     {
         /***
          *      store a new comment from with the request data
             */
+        return;
     }
 
     /**
@@ -56,7 +57,7 @@ class CommentController extends Controller
      */
     public function show(Comment $comment)
     {
-        
+
     }
 
     /**
@@ -67,7 +68,7 @@ class CommentController extends Controller
      */
     public function edit(Comment $comment)
     {
-        
+
         return view('parts.comment_form');
     }
 
@@ -81,7 +82,7 @@ class CommentController extends Controller
     public function update(Request $request, Comment $comment)
     {
         /***
-         *      
+         *
             */
     }
 

@@ -15,7 +15,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        
+
         $user = Auth::user();
         $name = $user->name;
         $member_since = $user->created_at;
@@ -25,14 +25,15 @@ class DashboardController extends Controller
         $last_login = null;
         $last_login_ip = null;
 
-        $view_data = [  
-             'posts' => $userposts, 
+        $view_data = [
+             'posts' => $userposts,
                         'name' => $name,
                         'email' => $email,
                         'member_since' => $member_since,
                         'verified' => $verified,
 
             ];
+
         return view('dashboard', $view_data);
     }
 
@@ -75,8 +76,7 @@ class DashboardController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+     */    public function destroy($id)
     {
         //
     }
