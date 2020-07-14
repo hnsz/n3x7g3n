@@ -98,17 +98,12 @@ class PostController extends Controller
 
             $post->save();
 
-            $this->saveHashtags($post);
+
+            $post->hashtags()->saveMany(collect(Hashtag::tagfilter($post->body)));
 
             return redirect('/posts')->with('message', 'Successfully added your post. You should find it in the list below.');
         }
     }
-
-    public function saveHashtags(\App\Post $post)
-    {
-        $post->hashtags()->saveMany(collect(Hashtag::tagfilter($post->body)));
-    }
-
     /**
      * Display the specified resource.
      *
@@ -117,7 +112,6 @@ class PostController extends Controller
      */
     public function show(\App\Post $post)
     {
-
         $viewmodel = ['post' => $post];
         return view('post.show', $viewmodel);
     }

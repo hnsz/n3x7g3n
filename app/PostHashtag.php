@@ -9,21 +9,9 @@ class PostHashtag extends Pivot
     protected $fillable = ['post', 'hashtag'];
     public $incrementing = true;
 
-
-    function __construct(array $attributes = [])
+    public function post()
     {
-        parent::__construct($attributes);
+        return $this->hasMany('App\Post', 'post');
     }
 
-    public function getBodyAttribute()
-    {
-        $tags = $this->hashtags->pluck('tag')->toArray();
-        $links = $this->hashtags->pluck('link')->toArray();
-
-        return  str_replace($tags, $links, "If you like #hsahtags then you will #love this!");
-    }
-    public function hashtags()
-    {
-        return $this->belongsToMany('App\Hashtag', 'post_hashtag')->using('App\PostHashtag');
-    }
 }

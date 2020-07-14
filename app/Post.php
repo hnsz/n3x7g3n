@@ -15,7 +15,11 @@ class Post extends Model
         'title', 'body', 'created_at', 'published_at'
     ];
 
-
+    public function hashtags()
+    {
+        return $this->belongsToMany('App\Hashtag', 'post_hashtag', 'post', 'hashtag')->using('App\PostHashtag');
+        //->withPivot(['post', 'hashtag'])
+    }
     public function threadstarter()
     {
         return $this->morphOne('App\Threadstarter', 'replyable')->withDefault();
