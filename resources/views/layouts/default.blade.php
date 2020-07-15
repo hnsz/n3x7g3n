@@ -19,15 +19,37 @@
         .philosopher {
             font-family: Philosopher;
             font-size:22pt;
-        }        
+        }
         .cormorant {
                 font-family: Cormorant;
-                
+
         }
         .EBGaramond-Regular {
                 font-family: 'EB Garamond', serif;
                 font-size: 18px;
 
+        }
+        .card-title-summary {
+            font-family: "Cormorant Infant SemiBold";
+            clear:both;
+        }
+        .post-summary-info {
+            margin-right: -90px;
+            font-size: 14px;
+            opacity: 80%;
+        }
+        .post-summary-info span:last-child {
+            border-bottom: #663d3d solid 2px;
+        }
+        .post-summary-info span:first-child {
+            padding-right:20px;
+        }
+        .card-text-summary {
+            font-family: 'EB Garamond', serif;
+            margin-right: -30px;
+        }
+        .card-body-summary {
+            font-size: 15px;
         }
 
         body {
@@ -44,11 +66,11 @@
             opacity:0.9;
         }
         .content-header-wrap {
-            background-color:#456789;            
-        }   
+            background-color:#456789;
+        }
         .content-body-wrap {
             background-color:#456789;
-        }        
+        }
 
         .content-header-wrap .card {
             margin:10px;
@@ -68,7 +90,7 @@
             font-weight:bold;
             }
 
-        
+
     </style>
 
 </head>
@@ -106,10 +128,10 @@
         <div class='content-header-wrap' >
             @yield('header')
         </div>      <!--//  content-header-wrao -->
-        
+
 
         <div class='content-body-wrap'>
-            
+
                 @yield('content')
 
         </div>      <!--//  content-body-wrao -->
@@ -120,7 +142,7 @@
                     <a href="https://laravel.com/docs">Docs</a>
                 @show
             </nav>      <!--//  navbar -->
-        
+
     </div> <!--// container    -->
 </body>
 </html>

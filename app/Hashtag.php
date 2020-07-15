@@ -10,10 +10,14 @@ class Hashtag extends Model
 
     public function posts()
     {
-        return $this->belongsToMany('App\Post','post_hashtag', 'post', 'hashtag')->using('App\PostHashtag');
+        return $this->belongsToMany('App\Post','post_hashtag', 'hashtag', 'post')->using('App\PostHashtag');
         //->withPivot(['post', 'hashtag'])
     }
 
+    public function getHashtagAttribute()
+    {
+        return "#{$this->attributes['tag']}";
+    }
     public function getLinkAttribute()
     {
         $tag = $this->attributes['tag'];

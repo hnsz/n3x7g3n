@@ -45,7 +45,7 @@ class PostController extends Controller
      */
     public function filter(Hashtag $hashtag)
     {
-        dd($hashtag);
+        return  view('post.filter', ['posts' => $hashtag->posts]);
     }
     /**
      * Show the form for creating a new resource.
@@ -99,7 +99,7 @@ class PostController extends Controller
             $post->save();
 
 
-            $post->hashtags()->saveMany(collect(Hashtag::tagfilter($post->body)));
+            $post->hashtags()->saveMany(Hashtag::tagScan($post->body));
 
             return redirect('/posts')->with('message', 'Successfully added your post. You should find it in the list below.');
         }
